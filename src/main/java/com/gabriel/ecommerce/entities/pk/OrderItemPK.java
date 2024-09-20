@@ -2,14 +2,19 @@ package com.gabriel.ecommerce.entities.pk;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 import com.gabriel.ecommerce.entities.Order;
 import com.gabriel.ecommerce.entities.Product;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
 @Embeddable
+@Getter
+@Setter
 public class OrderItemPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -21,22 +26,6 @@ public class OrderItemPK implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
 
 	@Override
 	public int hashCode() {
