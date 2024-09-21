@@ -1,7 +1,6 @@
 package com.gabriel.ecommerce.auth;
 
 import com.gabriel.ecommerce.config.JwtService;
-import com.gabriel.ecommerce.entities.enums.Role;
 import com.gabriel.ecommerce.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,13 +24,12 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .phone(request.getPhone())
-                .role(Role.USER)
+                .role(request.getRole())
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse
-                .builder()
-                .token(jwtToken)
+        return AuthenticationResponse.builder()
+                .accessToken(jwtToken)
                 .build();
     }
 
@@ -42,11 +40,12 @@ public class AuthenticationService {
                         request.getPassword()
                 )
         );
-        var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+        var user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse
-                .builder()
-                .token(jwtToken)
+        return AuthenticationResponse.builder()
+                .accessToken(jwtToken)
                 .build();
     }
+
 }
