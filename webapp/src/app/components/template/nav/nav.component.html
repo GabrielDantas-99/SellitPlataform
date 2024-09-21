@@ -1,0 +1,49 @@
+<mat-drawer-container class="container">
+    <mat-drawer class="sidebar" mode="side" opened>
+        <mat-selection-list class="list" #shoes [multiple]="false">
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                <span>Visão Geral</span>
+            </mat-list-option>
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>store</mat-icon>
+                <span>Produtos</span>
+            </mat-list-option>
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>category</mat-icon>
+                <span>Categorias</span>
+            </mat-list-option>
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>playlist_add_check</mat-icon>
+                <span>Pedidos</span>
+            </mat-list-option>
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>person</mat-icon>
+                <span>Clientes</span>
+            </mat-list-option>
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>moped</mat-icon>
+                <span>Entregas</span>
+            </mat-list-option>
+            <mat-divider></mat-divider>
+
+            <mat-list-option class="option">
+                <mat-icon mat-list-icon>settings</mat-icon>
+                <span>Configurações</span>
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-drawer>
+    <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>

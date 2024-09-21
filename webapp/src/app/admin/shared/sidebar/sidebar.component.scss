@@ -1,0 +1,47 @@
+.logo {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 150px;
+    }
+}
+
+.top {
+    margin: 12px 0;
+    margin-left: 165px;
+    font-size: 30px;
+}
+
+.menu-head {
+    color: #B7ECFF;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 20px;
+}
+
+.menu-item {
+    .menu-button {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: 10px 40px;
+        margin-bottom: 10px;
+        align-items: center;
+        background: #00000000;
+    }
+    .menu-button span {
+        margin-left: 15px;
+        color: white;
+    }
+    .menu-button:hover {
+        background: #2e2e2e7a;
+    }
+
+    .menu-button:focus {
+        background: #2e2e2e7a;
+    }
+
+}
