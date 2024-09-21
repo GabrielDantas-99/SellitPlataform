@@ -1,0 +1,12 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-visao-geral',
+  templateUrl: './visao-geral.component.html',
+  styleUrls: ['./visao-geral.component.scss'],
+})
+export class VisaoGeralComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+}
