@@ -7,9 +7,8 @@ import java.util.stream.Collectors;
 
 import com.gabriel.ecommerce.entities.Category;
 import com.gabriel.ecommerce.entities.dtos.ProductDTO;
+import com.gabriel.ecommerce.services.exceptions.DataIntegrityViolationException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.gabriel.ecommerce.entities.Product;

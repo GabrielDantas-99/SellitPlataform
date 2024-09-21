@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.gabriel.ecommerce.entities.User;
 import com.gabriel.ecommerce.repositories.UserRepository;
 import com.gabriel.ecommerce.services.exceptions.DatabaseException;
-import com.gabriel.ecommerce.services.exceptions.ResourceNotFoundException;
+import com.gabriel.ecommerce.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -27,7 +27,7 @@ public class UserService {
 	
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+		return obj.orElseThrow(() -> new ObjectNotFoundException(id));
 	}
 	
 	public User insert(User obj) {
@@ -38,7 +38,7 @@ public class UserService {
 		try {
 			repository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException(id);
+			throw new ObjectNotFoundException(id);
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException(e.getMessage());
 		}
@@ -51,7 +51,7 @@ public class UserService {
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
-			throw new ResourceNotFoundException(id);
+			throw new ObjectNotFoundException(id);
 		}
 		
 	}
