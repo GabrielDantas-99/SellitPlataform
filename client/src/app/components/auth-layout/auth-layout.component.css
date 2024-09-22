@@ -1,0 +1,3 @@
+.plataform-atributes {
+  @apply hover:bg-white/30 transition ease-in-out duration-300 cursor-pointer flex flex-col space-y-3 items-center border border-zinc-400 rounded-lg p-4;
+}

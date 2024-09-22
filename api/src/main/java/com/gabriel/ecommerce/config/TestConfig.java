@@ -70,7 +70,7 @@ public class TestConfig implements CommandLineRunner {
         var admin = RegisterRequest.builder()
                 .name("admin")
                 .email("admin@gmail.com")
-                .password("admin")
+                .password("admin123")
                 .phone("84988202020")
                 .role(ADMIN)
                 .build();

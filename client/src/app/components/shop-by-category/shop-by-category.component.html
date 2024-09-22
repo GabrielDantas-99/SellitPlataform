@@ -1,0 +1,18 @@
+<div class="h-fit">
+  <div class="flex items-center justify-between mt-4">
+    <h2 class="text-slate-400 font-semibold text-sm uppercase">
+      Comprar por Categoria
+    </h2>
+    <button
+      class="hover:bg-slate-100 justify-between rounded-md pr-2 pl-4 py-2 flex items-center text-md text-slate-400 font-medium transition ease-in-out"
+    >
+      Ver Tudo
+      <span class="w-fit material-symbols-rounded"> chevron_right </span>
+    </button>
+  </div>
+  <app-category-list
+    class="gap-2 flex overflow-x-scroll [&::-webkit-scrollbar]:hidden"
+    [categories]="categories"
+    (navigate)="navigate($event)"
+  ></app-category-list>
+</div>

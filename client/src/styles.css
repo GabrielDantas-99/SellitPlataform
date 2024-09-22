@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+span.size-34 {
+  font-size: 34px;
+  font-variation-settings: "OPSZ" 34;
+}
+
+.input {
+  @apply w-full rounded-md border-0 py-1.5 pl-4 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-400 sm:text-sm sm:leading-8 focus:outline-none;
+}
+.link {
+  @apply cursor-pointer text-right font-medium hover:underline transition;
+}
+
+.btn-primary {
+  @apply text-white font-medium bg-orange-500 px-5 py-2 rounded-md enabled:hover:bg-orange-400 transition enabled:cursor-pointer disabled:cursor-not-allowed disabled:opacity-75;
+}

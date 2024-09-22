@@ -1,0 +1,21 @@
+<div class="flex items-center gap-2">
+  <button
+    class="w-fit grid place-items-center border border-slate-200 text-slate-500 rounded py-2 px-6 hover:border-slate-400 hover:text-slate-700 transition hover:bg-slate-300/10 ease-in-out duration-400"
+    (click)="navigate(0)"
+    [ngClass]="{ 'bg-slate-700 text-white': activeCategory == 0 }"
+  >
+    <span class="whitespace-nowrap text-md text-center leading-5 font-medium">
+      Todas
+    </span>
+  </button>
+  <button
+    *ngFor="let category of categories"
+    class="w-fit grid place-items-center border border-slate-200 text-slate-500 rounded py-2 px-6 hover:border-slate-400 hover:text-slate-700 transition hover:bg-slate-300/10 ease-in-out duration-400"
+    (click)="navigate(category.id)"
+    [ngClass]="{ 'bg-slate-700 text-white': activeCategory == category.id }"
+  >
+    <span class="whitespace-nowrap text-md text-center leading-5 font-medium">
+      {{ category.name }}
+    </span>
+  </button>
+</div>

@@ -1,0 +1,42 @@
+<header [ngSwitch]="previousRoute" class="flex items-center h-20 px-6 py-2">
+  <div
+    class="max-w-[1200px] w-full h-full flex items-center justify-between mx-auto"
+  >
+    <div class="flex items-center text-3xl font-medium">
+      <h2 class="text-emerald-500">Sell.</h2>
+      <h2 class="text-slate-500">It</h2>
+    </div>
+    <button
+      class="grid place-items-center"
+      *ngIf="previousRoute"
+      routerLink="/{{ previousRoute }}"
+    >
+      <span class="material-symbols-rounded text-white text-3xl">
+        keyboard_return
+      </span>
+    </button>
+    <h2 class="font-semibold text-md text-zinc-700">{{ pageTitle }}</h2>
+    <div class="flex items-center gap-4">
+      <button class="w-14 h-14 rounded-full" *ngIf="imgPerfil != null">
+        <img
+          class="object-cover rounded-full"
+          src="{{ imgPerfil }}"
+          alt="imagem de perfil"
+        />
+      </button>
+      <div class="relative">
+        <span
+          class="z-10 absolute -right-2.5 -top-2.5 text-white h-6 w-6 rounded-full bg-emerald-600 grid place-items-center"
+        >
+          {{ cartCount }}
+        </span>
+        <span
+          aria-setsize="38"
+          class="z-0 material-symbols-rounded text-zinc-700 drop-shadow-sm size-34"
+        >
+          local_mall
+        </span>
+      </div>
+    </div>
+  </div>
+</header>

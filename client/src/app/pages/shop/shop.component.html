@@ -1,0 +1,13 @@
+<div class="h-screen">
+  <app-header [cartCount]="cart.length"></app-header>
+  <!-- Banner -->
+  <div class="max-w-[1200px] mx-auto pb-12">
+    <app-banner></app-banner>
+    <app-shop-by-category (navigate)="navigate($event)"></app-shop-by-category>
+    <app-products-list
+      (productToCart)="addToCart($event)"
+      [products]="productList"
+    ></app-products-list>
+  </div>
+  <app-footer></app-footer>
+</div>
