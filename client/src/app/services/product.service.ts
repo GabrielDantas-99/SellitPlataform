@@ -10,7 +10,11 @@ import { environment } from "../../environments/environment.development";
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  getProductsSmall(categoryId: number): Observable<Product[]> {
+  findAll(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.apiUrl}/products`);
+  }
+
+  findById(categoryId: number): Observable<Product[]> {
     return this.http.get<Product[]>(
       `${environment.apiUrl}/products/${categoryId}`
     );

@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-4 w-full mt-8">
+<div class="grid grid-cols-4 gap-4 w-full mt-8" *ngIf="products">
   <div
     *ngFor="let product of products"
     class="border-slate-200 border rounded-lg hover:shadow-xl ease-in-out duration-300 cursor-pointer"
@@ -6,7 +6,7 @@
     <div class="relative">
       <img
         class="w-full h-3/5 object-cover rounded-t-lg"
-        src="{{ product.imgUrl != null ? product.imgUrl : '/placeholder.svg' }}"
+        src="{{ product.imgUrl != '' ? product.imgUrl : '/placeholder.svg' }}"
         alt="imagem {{ product.name }}"
       />
       <button class="favorite-btn">
@@ -14,6 +14,7 @@
       </button>
     </div>
     <div class="flex flex-col p-2">
+      <p class="bg-red-600">{{ product.imgUrl }}</p>
       <div class="flex flex-col -gap-3">
         <div class="flex items-center justify-between py-1">
           <h4 class="text-slate-600 font-medium">{{ product.name }}</h4>
