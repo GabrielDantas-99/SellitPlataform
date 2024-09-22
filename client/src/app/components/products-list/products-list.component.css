@@ -1,0 +1,7 @@
+.cart-btn {
+  @apply h-full hover:bg-green-400 w-1/2 hover:text-white transition ease-in-out duration-200 p-3 rounded border-slate-200 border grid place-items-center;
+}
+
+.favorite-btn {
+  @apply absolute top-3 right-3 bg-white/50 flex justify-center items-center h-10 w-10 p-2.5 pt-3 rounded-full;
+}
