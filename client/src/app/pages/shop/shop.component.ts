@@ -10,6 +10,8 @@ import { Observable } from "rxjs";
 import { ProductService } from "../../services/product.service";
 import { ProgressSpinnerModule } from "primeng/progressspinner";
 import { AsyncPipe, NgIf } from "@angular/common";
+import { Category } from "../../types/category.dto";
+import { CategoryService } from "../../services/category.service";
 
 @Component({
   selector: "app-shop",
@@ -29,15 +31,19 @@ import { AsyncPipe, NgIf } from "@angular/common";
   styleUrl: "./shop.component.css",
 })
 export class ShopComponent {
-  constructor(private router: Router, private productService: ProductService) {
-    this.products$ = this.productService.findAll();
-    console.log(this.products$);
-  }
-
   products$: Observable<Product[]> | null = null;
-
+  categories$: Observable<Category[]> | null = null;
   cart: Product[] = [];
   cartCount: number = 0;
+
+  constructor(
+    private router: Router,
+    private productService: ProductService,
+    private categoryService: CategoryService
+  ) {
+    this.products$ = this.productService.findAll();
+    this.categories$ = this.categoryService.findAll();
+  }
 
   addToCart(product: Product) {
     this.cart.push(product);

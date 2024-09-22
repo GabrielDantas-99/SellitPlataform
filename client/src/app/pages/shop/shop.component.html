@@ -3,7 +3,12 @@
   <!-- Banner -->
   <div class="max-w-[1200px] mx-auto pb-12">
     <app-banner></app-banner>
-    <app-shop-by-category (navigate)="navigate($event)"></app-shop-by-category>
+    <ng-container *ngIf="categories$ | async as categories">
+      <app-shop-by-category
+        [categories]="categories"
+        (navigate)="navigate($event)"
+      ></app-shop-by-category>
+    </ng-container>
 
     <ng-container *ngIf="products$ | async as products; else loading">
       <app-products-list
