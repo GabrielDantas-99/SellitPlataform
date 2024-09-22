@@ -1,1 +1,26 @@
-<p>auth-layout works!</p>
+<div class="h-screen bg-cover bg-[url('/assets/auth-banner.jpg')]">
+  <div class="grid place-items-center h-screen bg-black/40">
+    <div
+      class="bg-black/60 backdrop-blur-sm w-1/2 rounded-xl p-10 border-zinc-700 border drop-shadow-md"
+    >
+      <div class="w-full flex flex-col items-center">
+        <img
+          class="object-fill max-w-[200px]"
+          width="300"
+          height="30"
+          src="/assets/logo-extended.png"
+          alt="logo"
+        />
+        <span class="text-white font-bold drop-shadow-md text-md">
+          Tudo que você precisa para a sua loja!
+        </span>
+      </div>
+      <div class="w-4/5 mx-auto mt-6">
+        <p class="text-md text-center text-white drop-shadow-md">
+          Prencha os campos abaixo para acessar a plataforma.
+        </p>
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
