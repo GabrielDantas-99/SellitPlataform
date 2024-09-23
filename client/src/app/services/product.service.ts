@@ -14,8 +14,8 @@ export class ProductService {
     return this.http.get<Product[]>(`${environment.apiUrl}/products`);
   }
 
-  findById(categoryId: number): Observable<Product[]> {
-    return this.http.get<Product[]>(
+  findById(categoryId: string): Observable<Product> {
+    return this.http.get<Product>(
       `${environment.apiUrl}/products/${categoryId}`
     );
   }

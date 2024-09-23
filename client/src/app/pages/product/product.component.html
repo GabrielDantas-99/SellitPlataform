@@ -1,0 +1,90 @@
+<div class="h-screen flex flex-col justify-between">
+  <app-header></app-header>
+  <!-- Banner -->
+  <div
+    class="flex items-center h-full mt-6"
+    *ngIf="product$ | async as product"
+  >
+    <div class="w-1/2 h-full">
+      <div class="flex items-center">
+        <div class="w-1/4 gap-4">
+          <div class="h-1/4 rounded-md mb-2">
+            <img src="/placeholder.svg" class="w-2/3 rounded-lg mx-auto" />
+          </div>
+          <div class="h-1/4 rounded-md mb-2">
+            <img src="/placeholder.svg" class="w-2/3 rounded-lg mx-auto" />
+          </div>
+          <div class="h-1/4 rounded-md mb-2">
+            <img src="/placeholder.svg" class="w-2/3 rounded-lg mx-auto" />
+          </div>
+          <div class="h-1/4 rounded-md">
+            <img src="/placeholder.svg" class="w-2/3 rounded-lg mx-auto" />
+          </div>
+        </div>
+        <div class="bg-zinc-300 rounded-lg w-3/4">
+          <img src="/placeholder.svg" class="w-full rounded-lg" />
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2 h-full px-12 space-y-8">
+      <div>
+        <h1 class="text-4xl text-slate-800 uppercase">{{ product.name }}</h1>
+        <h4 class="font-medium text-slate-500 uppercase mt-4 text-sm">
+          <span *ngFor="let category of product.categories; index as i">
+            {{ category.name }}
+            {{ product.categories.length !== i + 1 ? "|" : "" }}
+          </span>
+        </h4>
+      </div>
+      <div class="flex items-center gap-4 font-medium">
+        <span>+1k Vendidos</span>
+        &#9679;
+        <div class="flex items-center gap-2">
+          <p-rating
+            [readonly]="true"
+            [(ngModel)]="product.evaluation"
+            [cancel]="false"
+          />
+          {{ product.evaluation }} 0,0
+        </div>
+        &#9679;
+        <span>188 Avaliações</span>
+      </div>
+      <div>
+        <h1 class="text-5xl font-bold mb-2">
+          {{ product.price | currencyReais }}
+        </h1>
+        <span class="text-red-500 font-medium text-lg line-through mr-3">
+          R$ 2.737,50
+        </span>
+        <span class="text-green-500 text-lg font-medium">25% off</span>
+      </div>
+      <div>
+        <h6 class="text-slate-500 font-medium uppercase text-sm">Descrição</h6>
+        <p class="mt-2 text-slate-400">{{ product.description }}</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex justify-center">
+          <!-- max: Maximo no estoque -->
+          <p-inputNumber
+            [min]="0"
+            [max]="100"
+            [(ngModel)]="productQuantity"
+            [showButtons]="true"
+            buttonLayout="vertical"
+          />
+        </div>
+        <div class="flex flex-col space-y-2 w-full">
+          <p-button class="btn" label="Comprar" severity="contrast" />
+          <p-button
+            class="btn"
+            label="Adicionar ao Carrinho"
+            [outlined]="true"
+            severity="contrast"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

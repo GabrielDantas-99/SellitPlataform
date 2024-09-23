@@ -5,6 +5,7 @@ import { RegisterComponent } from "./pages/register/register.component";
 import { PaymentComponent } from "./pages/payment/payment.component";
 import { AuthGuard } from "./services/auth-guard.service";
 import { ShopComponent } from "./pages/shop/shop.component";
+import { ProductComponent } from "./pages/product/product.component";
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: "shop",
     component: ShopComponent,
+  },
+  {
+    path: "product/:productId",
+    component: ProductComponent,
   },
   {
     path: "payment",

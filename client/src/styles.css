@@ -46,3 +46,25 @@ body {
 .mat-mdc-menu-content {
   padding: 0 !important;
 }
+
+.p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-up,
+.p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-down {
+  width: 4rem !important;
+  height: 2rem !important;
+  border-color: #1f2936;
+  background-color: #1f2936;
+}
+
+.p-inputnumber-buttons-vertical .p-inputnumber-input {
+  order: 2;
+  border-radius: 0;
+  box-shadow: none;
+  border-color: #1f2936;
+  width: 4rem;
+  height: 2.5rem;
+  text-align: center;
+}
+
+.btn .p-button {
+  width: 100% !important;
+}

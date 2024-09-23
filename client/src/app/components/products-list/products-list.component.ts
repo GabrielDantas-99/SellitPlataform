@@ -5,11 +5,19 @@ import { CurrencyReaisPipe } from "../../pipes/currency-reais.pipe";
 import { Observable } from "rxjs";
 import { ProductService } from "../../services/product.service";
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-products-list",
   standalone: true,
-  imports: [NgFor, CurrencyReaisPipe, NgIf, MatProgressSpinner, AsyncPipe],
+  imports: [
+    NgFor,
+    CurrencyReaisPipe,
+    NgIf,
+    MatProgressSpinner,
+    AsyncPipe,
+    RouterLink,
+  ],
   templateUrl: "./products-list.component.html",
   styleUrl: "./products-list.component.css",
 })
