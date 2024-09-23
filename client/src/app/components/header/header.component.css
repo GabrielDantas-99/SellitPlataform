@@ -1,0 +1,3 @@
+.auth-link {
+  @apply uppercase text-xs font-medium hover:underline;
+}

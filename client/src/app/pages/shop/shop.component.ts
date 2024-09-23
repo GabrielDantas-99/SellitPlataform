@@ -8,10 +8,10 @@ import { Product } from "../../types/product.dto";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { Observable } from "rxjs";
 import { ProductService } from "../../services/product.service";
-import { ProgressSpinnerModule } from "primeng/progressspinner";
 import { AsyncPipe, NgIf } from "@angular/common";
 import { Category } from "../../types/category.dto";
 import { CategoryService } from "../../services/category.service";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
   selector: "app-shop",
@@ -23,8 +23,8 @@ import { CategoryService } from "../../services/category.service";
     RouterOutlet,
     ProductsListComponent,
     FooterComponent,
-    ProgressSpinnerModule,
     AsyncPipe,
+    MatProgressSpinnerModule,
     NgIf,
   ],
   templateUrl: "./shop.component.html",

@@ -5,25 +5,21 @@ import { tap } from "rxjs";
 import { environment } from "../../environments/environment.development";
 import { RegisterRequestDTO } from "../types/register-request.dto";
 import { LoginRequestDTO } from "../types/login-request.dto";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(loginRequest: LoginRequestDTO) {
-    console.log(loginRequest);
     return this.httpClient
       .post<LoginResponse>(
         environment.apiUrl + "/api/v1/auth/authenticate",
         loginRequest
       )
-      .pipe(
-        tap((value) => {
-          sessionStorage.setItem("auth-token", value.access_token);
-        })
-      );
+      .pipe(tap((value) => (this.user = value)));
   }
 
   register(userRegister: RegisterRequestDTO) {
@@ -35,6 +31,19 @@ export class AuthService {
           sessionStorage.setItem("auth-token", value.access_token);
         })
       );
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+  }
+
+  set user(user: LoginResponse) {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  get user() {
+    return JSON.parse(localStorage.getItem("user"));
   }
 
   isLoggedIn(): boolean {

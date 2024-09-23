@@ -24,17 +24,60 @@
           alt="imagem de perfil"
         />
       </button>
+      <div
+        mat-button
+        [matMenuTriggerFor]="menu"
+        #menuTrigger
+        class="cursor-pointer flex items-center gap-2 hover:bg-slate-100 transition ease-in-out py-1 pl-1 pr-2 rounded-lg"
+        *ngIf="user != null; else loginRegister"
+      >
+        <span class="material-symbols-rounded !text-5xl !text-slate-800">
+          account_circle
+        </span>
+        <span class="leading-4 text-sm text-slate-800">
+          <p>{{ user.name }}</p>
+          <p>{{ user.email }}</p>
+        </span>
+      </div>
+      <mat-menu class="!bg-white" #menu>
+        <button routerLink="/profile" mat-menu-item>
+          <span class="material-symbols-rounded"> manage_accounts </span>
+          <span>Perfil</span>
+        </button>
+        <button routerLink="/favorites" mat-menu-item>
+          <span class="material-symbols-rounded"> favorite </span>
+          Favoritos
+        </button>
+        <button
+          (click)="logout()"
+          class="!bg-red-400 !text-white"
+          mat-menu-item
+        >
+          <span class="material-symbols-rounded"> logout </span>
+          Sair
+        </button>
+      </mat-menu>
+      <ng-template class="flex items-center gap-2" #loginRegister>
+        <span class="material-symbols-rounded !text-5xl !text-slate-800">
+          account_circle
+        </span>
+        <span class="leading-4 text-sm text-slate-800">
+          <a href="/login" class="auth-link">Entre</a>
+          ou <br />
+          <a href="/register" class="auth-link">Cadastre-se</a>
+        </span>
+      </ng-template>
       <div class="relative">
         <span
-          class="z-10 absolute -right-2.5 -top-2.5 text-white h-6 w-6 rounded-full bg-emerald-600 grid place-items-center"
+          class="z-10 absolute -right-2.5 -top-2.5 text-white text-sm h-5 w-5 rounded-full bg-emerald-600 grid place-items-center"
         >
           {{ cartCount }}
         </span>
         <span
           aria-setsize="38"
-          class="z-0 material-symbols-rounded text-zinc-700 drop-shadow-sm size-34"
+          class="z-0 material-symbols-rounded text-slate-800 drop-shadow-sm size-34"
         >
-          local_mall
+          shopping_cart
         </span>
       </div>
     </div>

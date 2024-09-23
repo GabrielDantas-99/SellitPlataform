@@ -25,3 +25,24 @@ span.size-34 {
 .btn-primary {
   @apply text-white font-medium bg-orange-500 px-5 py-2 rounded-md enabled:hover:bg-orange-400 transition enabled:cursor-pointer disabled:cursor-not-allowed disabled:opacity-75;
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-menu-item-text {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px;
+  padding-right: 24px;
+  padding-left: 10px;
+}
+
+.mat-mdc-menu-content {
+  padding: 0 !important;
+}
