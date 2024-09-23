@@ -3,25 +3,8 @@
   <!-- Banner -->
   <div class="max-w-[1200px] mx-auto pb-12">
     <app-banner></app-banner>
-    <ng-container *ngIf="categories$ | async as categories">
-      <app-shop-by-category
-        [categories]="categories"
-        (navigate)="navigate($event)"
-      ></app-shop-by-category>
-    </ng-container>
-
-    <ng-container *ngIf="products$ | async as products; else loading">
-      <app-products-list
-        (productToCart)="addToCart($event)"
-        [products]="products"
-      ></app-products-list>
-    </ng-container>
-
-    <ng-template #loading>
-      <div class="w-full h-full grid place-items-center">
-        <mat-spinner></mat-spinner>
-      </div>
-    </ng-template>
+    <app-shop-by-category></app-shop-by-category>
+    <app-products-list (productToCart)="addToCart($event)"></app-products-list>
   </div>
   <app-footer></app-footer>
 </div>

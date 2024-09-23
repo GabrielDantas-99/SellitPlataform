@@ -1,4 +1,4 @@
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2" *ngIf="categories$ | async as categories">
   <button
     class="w-fit grid place-items-center border border-slate-200 text-slate-500 rounded py-2 px-6 hover:border-slate-400 hover:text-black transition hover:bg-slate-300/10 ease-in-out duration-400"
     (click)="navigate(0)"

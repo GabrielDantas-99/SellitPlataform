@@ -1,4 +1,7 @@
-<div class="grid grid-cols-4 gap-4 w-full mt-8" *ngIf="products">
+<div
+  class="grid grid-cols-4 gap-4 w-full mt-8"
+  *ngIf="products$ | async as products; else loading"
+>
   <div
     *ngFor="let product of products"
     class="border-slate-200 border rounded-lg hover:shadow-xl ease-in-out duration-300 cursor-pointer"
@@ -43,3 +46,8 @@
     </div>
   </div>
 </div>
+<ng-template #loading>
+  <div class="w-full mt-48 grid place-items-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
